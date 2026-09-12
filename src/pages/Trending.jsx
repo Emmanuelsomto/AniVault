@@ -1,6 +1,6 @@
 // src/pages/Trending.jsx
 import { useState, useEffect } from "react";
-import { getTrendingAnime } from "../services/api";
+import { getTrendingAnime } from "../services/API";
 
 export default function Trending() {
   const [animeList, setAnimeList] = useState([]);
