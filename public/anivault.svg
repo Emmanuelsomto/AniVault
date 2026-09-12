@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Dark background gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Red accent gradient -->
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded Box Background -->
+  <rect width="100" height="100" rx="24" fill="url(#bg)"/>
+
+  <!-- Stylized "A" Triangle Mark -->
+  <path d="M50 20 L78 80 H62 L50 52 L38 80 H22 Z" fill="url(#brand)"/>
+  <circle cx="50" cy="38" r="4" fill="#ffffff"/>
+</svg>
