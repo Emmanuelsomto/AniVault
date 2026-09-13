@@ -1,11 +1,12 @@
-// src/pages/Trending.jsx
 import { useState, useEffect } from "react";
 import { getTrendingAnime } from "../services/API";
+import TrailerModal from "../components/TrailerModal";
 
 export default function Trending() {
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedTrailer, setSelectedTrailer] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -13,7 +14,6 @@ export default function Trending() {
     async function loadTrending() {
       try {
         setLoading(true);
-        // Call the imported function
         const data = await getTrendingAnime(controller.signal);
         setAnimeList(data);
       } catch (err) {
@@ -33,7 +33,7 @@ export default function Trending() {
   // 1. Skeleton Loading State
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 text-white p-6 space-y-6">
+      <div className="min-h-screen bg-slate-950 text-white p-6 space-y-63">
         <h1 className="text-2xl font-bold tracking-tight">
           Trending Right Now
         </h1>
@@ -43,7 +43,7 @@ export default function Trending() {
               key={index}
               className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 animate-pulse"
             >
-              <div className="aspect-[2/3] w-full bg-slate-800" />
+              <div className="aspect-2/3 w-full bg-slate-800" />
               <div className="p-3 space-y-2">
                 <div className="h-4 bg-slate-800 rounded w-3/4" />
                 <div className="h-3 bg-slate-800 rounded w-1/4" />
@@ -72,24 +72,25 @@ export default function Trending() {
 
   // 3. Render API Data
   return (
-    <div className="min-h-screen bg-slate-950 text-white p-6 space-y-6">
+    <div className="min-h-screen bg-slate-950 text-white p-6 space-y-6 mb-16">
       <h1 className="text-2xl font-bold tracking-tight">Trending Right Now</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {animeList.map((anime, index) => {
-          const { canonicalTitle, posterImage, averageRating } =
+          const { canonicalTitle, posterImage, averageRating, youtubeVideoId } =
             anime.attributes;
 
           return (
             <div
               key={anime.id}
+              onClick={() => setSelectedTrailer(youtubeVideoId)}
               className="relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-colors"
             >
               <span className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-md z-10 shadow-md">
                 #{index + 1}
               </span>
 
-              <div className="aspect-[2/3] w-full bg-slate-950 overflow-hidden">
+              <div className="aspect-2/3 w-full bg-slate-950 overflow-hidden">
                 <img
                   src={posterImage?.small}
                   alt={canonicalTitle}
@@ -112,6 +113,13 @@ export default function Trending() {
           );
         })}
       </div>
+
+      {selectedTrailer && (
+        <TrailerModal
+          videoId={selectedTrailer}
+          onClose={() => setSelectedTrailer(null)}
+        />
+      )}
     </div>
   );
 }

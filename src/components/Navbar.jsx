@@ -30,7 +30,7 @@ export default function Navbar() {
         </Link>
         <Link
           to="/login"
-          className="bg-[#e50914] text-white py-2 px-8 hover:bg-[#b80710] duration-300 ease-in transition-colors font-semibold text-lg rounded-lg"
+          className="bg-[#e50914] text-white py-2 px-10 hover:bg-[#b80710] duration-300 ease-in transition-colors font-semibold text-lg rounded-lg"
         >
           <button className="cursor-pointer">Login</button>
         </Link>

@@ -112,7 +112,7 @@ export default function SearchBar() {
 
       {/* Floating Dropdown Results Box */}
       {query.length >= 3 && (
-        <div className="absolute top-[calc(100%+6px)] left-2 right-2 sm:left-0 sm:right-0 bg-[#141414] border border-[#2a2a2a] rounded-lg overflow-hidden shadow-2xl z-[100] max-h-[70vh] overflow-y-auto p-1.5 sm:p-2">
+        <div className="absolute top-[calc(100%+6px)] left-2 right-2 sm:left-0 sm:right-0 bg-[#141414] border border-[#2a2a2a] rounded-lg overflow-hidden shadow-2xl z-100 max-h-[70vh] overflow-y-auto p-1.5 sm:p-2">
           {loading && (
             <p className="text-[#888] p-3.5 m-0 text-center text-xs sm:text-sm">
               Searching Kitsu...
@@ -135,7 +135,7 @@ export default function SearchBar() {
                 <img
                   src={anime.images?.jpg?.small_image_url}
                   alt={anime.title}
-                  className="w-[36px] h-[50px] sm:w-[42px] sm:h-[58px] object-cover rounded shrink-0 bg-[#2a2a2a]"
+                  className="w-9 h-12.5 sm:w-10.5 sm:h-14.5 object-cover rounded shrink-0 bg-[#2a2a2a]"
                 />
                 <div className="min-w-0 flex-1">
                   <h4 className="text-[#f5f5f5] m-0 text-xs sm:text-sm font-semibold truncate">
@@ -152,7 +152,7 @@ export default function SearchBar() {
 
       {/* Trailer Video Modal */}
       {selectedTrailer && (
-        <div className="fixed inset-0 bg-black/85 backdrop-blur-sm flex justify-center items-center z-[1000] p-3 sm:p-4">
+        <div className="fixed inset-0 bg-black/85 backdrop-blur-sm flex justify-center items-center z-1000 p-3 sm:p-4">
           <div className="w-full max-w-3xl bg-[#111] border border-[#2a2a2a] rounded-xl p-3 sm:p-4 shadow-2xl">
             <button
               className="inline-flex items-center gap-1.5 bg-[#e50914] text-white border-none px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-md cursor-pointer text-xs font-semibold mb-2.5 sm:mb-3 hover:opacity-85 transition-opacity"
@@ -160,7 +160,7 @@ export default function SearchBar() {
             >
               <FaTimes /> Close
             </button>
-            <div className="relative min-h-[220px] pt-[56.25%] h-0 rounded-lg overflow-hidden bg-black">
+            <div className="relative min-h-55 pt-[56.25%] h-0 rounded-lg overflow-hidden bg-black">
               <iframe
                 className="absolute inset-0 w-full h-full border-0"
                 src={`https://www.youtube.com/embed/${selectedTrailer}?autoplay=1&mute=1&controls=1&playsinline=1&rel=0&enablejsapi=1`}
