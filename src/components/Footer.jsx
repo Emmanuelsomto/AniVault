@@ -12,7 +12,7 @@ export default function Footer() {
       <h2 className="font-bold text-2xl md:text-4xl mb-6 font-poppins">
         Ani<span className=" text-red-500">V</span>ault
       </h2>
-      <p className="font-syne mb-10 tracking-wide font-normal mx-6 text-sm md:text-lg md:font-medium text-gray-400 text-center active:not-only:text-gray-100">
+      <p className="font-syne mb-10 tracking-wide font-normal mx-6 text-sm md:text-lg md:font-medium text-gray-400 text-center">
         A fast, distraction-free anime discovery engine built for fans.
       </p>
 
