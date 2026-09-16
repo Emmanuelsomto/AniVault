@@ -11,14 +11,14 @@ export default function Navbar() {
   return (
     <nav className="flex justify-between items-center py-2 mx-6 gap-10 text-white">
       <Link to="/">
-        <h1 className="font-poppins font-bold text-lg md:text-3xl">
+        <h1 className="font-poppins font-black text-lg md:text-3xl">
           Ani<span className="text-red-500 opacity-90">V</span>ault
         </h1>
       </Link>
 
       <Searchbar className="w-full h-full px-4" />
 
-      <div className="md:flex justify-center items-center gap-8 font-medium font-poppins hidden">
+      <div className="md:flex justify-center items-center gap-6 font-medium font-poppins hidden">
         <Link to="/trending" className="text-base hover:text-red-500">
           Trending
         </Link>

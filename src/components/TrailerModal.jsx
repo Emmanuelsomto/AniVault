@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 
-export default function TrailerModal({ videoId, onClose }) {
+export default function TrailerModal({ anime, onClose, onWatch }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
@@ -10,7 +10,14 @@ export default function TrailerModal({ videoId, onClose }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
-  if (!videoId) return null;
+  useEffect(() => {
+    if (anime && onWatch) {
+      onWatch(anime);
+    }
+  }, [anime?.id, onWatch]);
+
+  if (!anime) return null;
+  const { youtubeVideoId } = anime.attributes || {};
 
   return (
     <div
@@ -35,7 +42,7 @@ export default function TrailerModal({ videoId, onClose }) {
         <div className="relative pt-[56.25%] min-h-55 w-full bg-black">
           <iframe
             className="absolute inset-0 w-full h-full"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1`}
+            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&playsinline=1`}
             title="Anime Trailer"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

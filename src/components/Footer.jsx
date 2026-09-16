@@ -21,21 +21,21 @@ export default function Footer() {
           <a
             href="https://x.com/Web3Wanderer9"
             target="_blank"
-            className="text-gray-300 cursor-pointer hover:text-gray-200 active:not-only:text-gray-100"
+            className="text-gray-300 cursor-pointer hover:text-gray-200 active:text-gray-100"
           >
             <FaXTwitter className="w-6 h-6" />
           </a>
           <a
             href="https://github.com/Emmanuelsomto"
             target="_blank"
-            className="text-gray-300 cursor-pointer hover:text-gray-200 active:not-only:text-gray-100"
+            className="text-gray-300 cursor-pointer hover:text-gray-200 active:text-gray-100"
           >
             <FaGithub className="w-6 h-6" />
           </a>
           <a
             href="https://www.linkedin.com/in/emmanuel-agbai-867aa9364/"
             target="_blank"
-            className="text-gray-300 cursor-pointer hover:text-gray-200"
+            className="text-gray-300 cursor-pointer hover:text-gray-200 active:text-gray-100"
           >
             <FaLinkedinIn className="w-6 h-6" />
           </a>

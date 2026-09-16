@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { getTrendingAnime } from "../services/API";
-import TrailerModal from "../components/TrailerModal";
 
-export default function Trending() {
+export default function Trending({ onSelectAnime }) {
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedTrailer, setSelectedTrailer] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -34,7 +32,7 @@ export default function Trending() {
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-950 text-white p-6 space-y-63">
-        <h1 className="text-2xl font-bold tracking-tight">
+        <h1 className="text-2xl font-bold tracking-tight font-poppins">
           Trending Right Now
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -83,7 +81,7 @@ export default function Trending() {
           return (
             <div
               key={anime.id}
-              onClick={() => setSelectedTrailer(youtubeVideoId)}
+              onClick={() => onSelectAnime && onSelectAnime(anime)}
               className="relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-colors"
             >
               <span className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-md z-10 shadow-md">
@@ -113,13 +111,6 @@ export default function Trending() {
           );
         })}
       </div>
-
-      {selectedTrailer && (
-        <TrailerModal
-          videoId={selectedTrailer}
-          onClose={() => setSelectedTrailer(null)}
-        />
-      )}
     </div>
   );
 }
