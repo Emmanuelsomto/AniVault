@@ -9,6 +9,7 @@ import Trending from "./pages/Trending";
 import Login from "./pages/Login";
 import TrailerModal from "./components/TrailerModal";
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   const [selectedAnime, setSelectedAnime] = useState(null);
@@ -66,6 +67,7 @@ export default function App() {
           onWatch={handleAutoAddToVault}
         />
       )}
+      <Analytics />
     </div>
   );
 }
